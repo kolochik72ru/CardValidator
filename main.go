@@ -1,6 +1,8 @@
 package main
 
+import "CardValidator/utils"
+
 func main() {
 	// Запускаем сервер
-	StartServer()
+	utils.StartServer()
 }

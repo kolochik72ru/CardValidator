@@ -45,15 +45,17 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) (map[string]string, i
 	}
 
 	// Проверяем число по алгоритму Луна
-	isValid := CardCheck(number)
+	paymentSystem, isValid := CardCheck(number)
 
 	validResponse := map[string]string{
-		"message": "Number is valid",
-		"number":  number,
+		"message":       "Number is valid",
+		"paymentSystem": paymentSystem,
+		"number":        number,
 	}
 	invalidResponse := map[string]string{
-		"message": "Number is invalid",
-		"number":  number,
+		"message":       "Number is invalid",
+		"paymentSystem": paymentSystem,
+		"number":        number,
 	}
 
 	if !isValid {
